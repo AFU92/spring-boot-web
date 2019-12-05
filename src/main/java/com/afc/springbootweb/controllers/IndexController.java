@@ -2,6 +2,7 @@ package com.afc.springbootweb.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
@@ -9,8 +10,9 @@ import java.util.Map;
 public class IndexController {
 
     @GetMapping({"/index", "/", "/home"})
-    public String index(Map<String, Object> map) {
-        map.put("title", "Hello buddy!");
-        return "index";
+    public ModelAndView index(ModelAndView mv) {
+        mv.addObject("title", "Hello buddy!");
+        mv.setViewName("index");
+        return mv;
     }
 }
