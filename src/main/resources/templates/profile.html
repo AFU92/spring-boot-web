@@ -11,6 +11,6 @@
     <span th:text="${user.lastName}"></span>
 
     <span th:if="${user.email}" th:text="${user.email}"></span><br>
-    <span th:if="${user.email == null}" th:text="${'email not found'}"></span>
+    <span th:if="${user.email == null}">Email not found</span>
 </body>
 </html>
