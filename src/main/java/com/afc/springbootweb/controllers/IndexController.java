@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -35,11 +36,11 @@ public class IndexController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        List<User> users = new ArrayList<>();
-        users.add(new User("Daniel", "Torres", "dt@test.com"));
-        users.add(new User("Juli", "Davila", "jd@test.com"));
-        users.add(new User("Mich", "Perez", "mp@test.com"));
-        users.add(new User("Juan", "Molina", "jm@test.com"));
+        List<User> users = Arrays.asList(new User("Daniel", "Torres", "dt@test.com"),
+                new User("Juli", "Davila", "jd@test.com"),
+                new User("Mich", "Perez", "mp@test.com"),
+                new User("Juan", "Molina", "jm@test.com"),
+                new User("Rick", "Noulose", "jm@test.com"),);
         model.addAttribute("title", "users_list");
         model.addAttribute("users", users);
             return"list";
