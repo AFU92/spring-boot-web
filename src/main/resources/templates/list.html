@@ -7,6 +7,22 @@
 <body>
     <h1 th:text="${title }"></h1>
 
-    <div th:if="${users.size()==0}">No registered users on the list</div>
+    <div th:if="${users.isEmpty()}">No registered users on the list</div>
+
+    <table th:if="${!users.isEmpty()}">
+        <thead></thead>
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        <tbody>
+            <tr th:each="user_array: ${users}">
+                <td th:text="${user_array.lastName}"></td>
+                <td th:text="${user_array.email}"></td>
+                <td th:text="${user_array.name}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

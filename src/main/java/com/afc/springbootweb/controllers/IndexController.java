@@ -36,6 +36,10 @@ public class IndexController {
     @GetMapping("/list")
     public String list(Model model) {
         List<User> users = new ArrayList<>();
+        users.add(new User("Daniel", "Torres", "dt@test.com"));
+        users.add(new User("Juli", "Davila", "jd@test.com"));
+        users.add(new User("Mich", "Perez", "mp@test.com"));
+        users.add(new User("Juan", "Molina", "jm@test.com"));
         model.addAttribute("title", "users_list");
         model.addAttribute("users", users);
             return"list";
