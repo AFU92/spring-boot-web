@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/params")
 public class ExampleParamsController {
@@ -27,5 +29,19 @@ public class ExampleParamsController {
         model.addAttribute("result", "El saludo enviado es: '" + greeting + "' y el número es: '" + number +"'");
         return "params/show";
     }
+
+    @GetMapping("/mix-params-two")
+    public String param(HttpServletRequest request, Model model){
+        String greeting = request.getParameter("greeting");
+        Integer number = null;
+        try {
+            number = Integer.parseInt(request.getParameter("number"));
+        } catch (NumberFormatException e) {
+            number = 0;
+        }
+        model.addAttribute("result", "El saludo enviado es: '" + greeting + "' y el número es: '" + number +"'");
+        return "params/show";
+    }
+
 
 }
