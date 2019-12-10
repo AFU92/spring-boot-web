@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}"></title>
+    <link rel="stylesheet", type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}"></h1>
+<h1 class="color-green" th:text="${title}"></h1>
+<h2 class="color-blue">Use static style css</h2>
+<img th:src="@{/images/dev.png}">
 <div th:text="${result}"></div>
 <ul>
     <li><a th:href="@{/variables/string/} + 'Hellooooo!!!!'">/variables/string/Hellooooo!!!!</a></li>
